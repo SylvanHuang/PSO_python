@@ -131,7 +131,7 @@ class PSO(object):
         for i in range(self.particle_num): 
             a1 = [x * self.w for x in particle_dir[i]]
             a2 = [y * self.c1 * random.random() for y in list(np.array(pbest_parameters[i]) - np.array(particle_loc[i]))]
-            a3 = [z * self.c2 * random.random() for z in list(np.array(gbest_parameter) - np.array(particle_dir[i]))]
+            a3 = [z * self.c2 * random.random() for z in list(np.array(gbest_parameter) - np.array(particle_loc[i]))]
             particle_dir[i] = list(np.array(a1) + np.array(a2) + np.array(a3))
 #            particle_dir[i] = self.w * particle_dir[i] + self.c1 * random.random() * (pbest_parameters[i] - particle_loc[i]) + self.c2 * random.random() * (gbest_parameter - particle_dir[i])
             particle_loc[i] = list(np.array(particle_loc[i]) + np.array(particle_dir[i]))
